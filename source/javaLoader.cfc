@@ -19,8 +19,14 @@
 	<cffunction name="createJavaLoaderObject" hint="I return the javaloader object with the jars loaded" returntype="Any">
 		<cfargument name="loadPaths" required="true" type="array" />
 		
+		<cfset local.rootComponentPath = "">
+		<cfif Len(Trim(get('rootComponentPath')))>
+			<cfset local.rootComponentPath = get('rootComponentPath') & ".">
+		</cfif>
+
 		<cfscript>
-			var javaloader = createObject("component", "plugins.javaloader.JavaLoader.Javaloader").init(arguments.loadPaths, 'true');
+			// var javaloader = createObject("component", "plugins.javaloader.JavaLoader.Javaloader").init(arguments.loadPaths, 'true');
+			var javaloader = createObject("component", "#local.rootComponentPath#plugins.javaloader.JavaLoader.Javaloader").init(arguments.loadPaths, 'true');
 		</cfscript>
 		
 		<cfreturn javaloader />
