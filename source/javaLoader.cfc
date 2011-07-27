@@ -34,8 +34,10 @@
 			var i = "";
 		    // create loadPath array
 			var loadPaths = ArrayNew(1); 
-			var dirPath = ReturnWebRootTranslated() & "/lib/";
-			var proxyJar = ReturnWebRootTranslated() & "/plugins/javaloader/javaLoader/support/cfcdynamicproxy/lib/cfcdynamicproxy.jar";
+			// var dirPath = ReturnWebRootTranslated() & "/lib/";
+			// var proxyJar = ReturnWebRootTranslated() & "/plugins/javaloader/javaLoader/support/cfcdynamicproxy/lib/cfcdynamicproxy.jar";
+			var dirPath = GetDirectoryFromPath(GetBaseTemplatePath()) & "/lib/";
+			var proxyJar = GetDirectoryFromPath(GetBaseTemplatePath()) & "/plugins/javaloader/javaLoader/support/cfcdynamicproxy/lib/cfcdynamicproxy.jar";
 		</cfscript>
 		
 		<!--- read directory for jar files --->
